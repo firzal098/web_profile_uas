@@ -2,6 +2,11 @@ addEventListener('DOMContentLoaded', ()=>{
 
     const commentList = document.querySelector('.comments');
 
+    const nameInput = document.getElementById('fname');
+    const textInput = document.getElementById('komentar');
+
+    const counter = document.getElementById('text-count');
+
     function formatTimestamp(unix) {
         const date = new Date(unix * 1000);
         return `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
@@ -92,6 +97,22 @@ addEventListener('DOMContentLoaded', ()=>{
         }
     });
 
+
+    nameInput.addEventListener('input', () => {
+        if (nameInput.value.length > 20) {
+            nameInput.value = nameInput.value.slice(0, 20);
+        }
+    });
+
+    textInput.addEventListener('input', () => {
+        if (textInput.value.length > 200) {
+            textInput.value = textInput.value.slice(0, 200);
+        }
+    });
+
+    textInput.addEventListener('input', () => {
+        counter.textContent = `  ${textInput.value.length}/200`;
+    });
 
     fetchComments(); // load initially
 })

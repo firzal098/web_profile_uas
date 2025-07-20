@@ -457,13 +457,19 @@ iframe:hover {
 }
 
 .comment-text {
-  font-size: 17px; /* was 14px */
-  color: #e0e0e0;
-  margin: 0;
-  font-family: 'Montserrat';
-  text-align: left;
-  line-height: 1.6;
+    font-size: 17px;
+    color: #e0e0e0;
+    margin: 0;
+    font-family: 'Montserrat';
+    text-align: left;
+    line-height: 1.6;
+
+    /* 💥 this part keeps long words or links from overflowing */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
 }
+
 
 .comment-time {
   all: unset;
@@ -503,4 +509,13 @@ iframe:hover {
     text-align: center;
     font-family: 'Montserrat';
     margin: 20px 0;
+}
+
+.text-counter {
+    display: block;
+    text-align: right;
+    margin-top: 5px;
+    font-size: 13px;
+    color: #aaa; /* soft gray */
+    font-family: 'Montserrat', sans-serif;
 }
