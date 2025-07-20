@@ -23,7 +23,7 @@ addEventListener('DOMContentLoaded', ()=>{
     }
 
 
-
+  
     function renderComments(comments) {
         commentList.innerHTML = ''; // clear current comments
 
