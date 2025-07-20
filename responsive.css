@@ -1,0 +1,10 @@
+.content, .divheader {
+  display: flex;
+  flex-direction: row;
+}
+
+@media (orientation: portrait) {
+  .content, .divheader {
+    flex-direction: column;
+  }
+}
