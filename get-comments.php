@@ -8,7 +8,6 @@ if (file_exists($filename)) {
     $lines = file($filename, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
     foreach ($lines as $line) {
         [$name, $timestamp, $text] = explode('|', $line, 3);
-        $text = str_replace('\\n', "\n", $text); // decode line breaks
         $comments[] = [
             'name' => $name,
             'timestamp' => (int)$timestamp,
