@@ -7,6 +7,16 @@ addEventListener('DOMContentLoaded', ()=>{
         return `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
     }
 
+    function escapeHTML(str) {
+        return str
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    }
+
+
     function renderComments(comments) {
         commentList.innerHTML = ''; // clear current comments
 
@@ -26,7 +36,7 @@ addEventListener('DOMContentLoaded', ()=>{
                     <span class="comment-author">${c.name}</span>
                     <span class="comment-time">· ${formatTimestamp(c.timestamp)}</span>
                 </p>
-                <p class="comment-text">${c.text.replace(/\n/g, '<br>')}</p>
+                <p class="comment-text">${escapeHTML(c.text).replace(/\n/g, '<br>')}</p>
             `;
             commentList.appendChild(el);
         });
