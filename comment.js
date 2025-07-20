@@ -13,8 +13,10 @@ addEventListener('DOMContentLoaded', ()=>{
             .replace(/</g, "&lt;")
             .replace(/>/g, "&gt;")
             .replace(/"/g, "&quot;")
-            .replace(/'/g, "&#039;");
+            .replace(/'/g, "&#039;")
+            .replace(/&lt;br&gt;/g, "<br>"); // unescape <br>
     }
+
 
 
     function renderComments(comments) {
@@ -33,7 +35,7 @@ addEventListener('DOMContentLoaded', ()=>{
             el.className = 'comment';
             el.innerHTML = `
                 <p class="comment-meta">
-                    <span class="comment-author">${c.name}</span>
+                    <span class="comment-author">${escapeHTML(c.name)}</span>
                     <span class="comment-time">· ${formatTimestamp(c.timestamp)}</span>
                 </p>
                 <p class="comment-text">${escapeHTML(c.text).replace(/\n/g, '<br>')}</p>
