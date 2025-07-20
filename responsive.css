@@ -1,10 +1,66 @@
-.content, .divheader {
-  display: flex;
-  flex-direction: row;
-}
-
+/* Existing styles */
 @media (orientation: portrait) {
-  .content, .divheader {
+  .content {
     flex-direction: column;
   }
+}
+
+/* Responsive Top Bar */
+@media (max-width: 768px) {
+  .divheader {
+    flex-wrap: wrap;
+    padding: 15px 20px;
+    justify-content: space-between; /* Aligns FIRZAL and menu button */
+  }
+
+  .divheader .item.clock {
+    display: none; /* Hide the clock on mobile */
+  }
+  
+  .divheader .item:first-child { /* "FIRZAL" */
+    order: 1;
+    font-size: 1.2em;
+  }
+
+  .menu-toggle {
+    display: flex; /* Show hamburger */
+    order: 2; /* Place it after FIRZAL */
+  }
+
+  .topnav {
+    display: none; /* Hide nav links by default */
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    background-color: white;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    order: 3; /* Ensure it flows correctly in the flex container */
+  }
+
+  .topnav.active {
+    display: flex; /* Show when active */
+  }
+
+  .topnav a {
+    padding: 15px;
+    border-bottom: 1px solid #f2f2f2;
+  }
+  
+  .topnav a:last-child {
+    border-bottom: none;
+  }
+}
+
+@media (max-width: 480px) {
+    .divheader .item:first-child { /* "FIRZAL" */
+        font-size: 1em;
+    }
+    /* The clock is already hidden by the rule above */
+    .grid {
+        grid-template-columns: 1fr;
+    }
 }

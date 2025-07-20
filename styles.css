@@ -321,8 +321,7 @@ p,
 
     text-align: center;
     font-size: 13vw;
-/* 
-    margin-top: auto;
+/* margin-top: auto;
     margin-bottom: auto; */
 
     background: #FBFEF9;
@@ -469,7 +468,7 @@ iframe:hover {
     overflow-wrap: break-word;
     white-space: normal;
 }
- 
+
 
 .comment-time {
   all: unset;
@@ -518,4 +517,22 @@ iframe:hover {
     font-size: 13px;
     color: #aaa; /* soft gray */
     font-family: 'Montserrat', sans-serif;
+}
+
+/* Hamburger Menu */
+.menu-toggle {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.menu-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background-color: black;
+    margin: 4px 0;
+    transition: 0.4s;
 }

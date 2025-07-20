@@ -75,8 +75,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
     
 
-    const topnav = document.querySelector('.topnav')
-    const items = topnav.querySelectorAll('a[data-info]')
+    const topnav = document.getElementById('topnav');
+    const items = topnav.querySelectorAll('a[data-info]');
+    const menuToggle = document.getElementById('menu-toggle');
+
+    menuToggle.addEventListener('click', () => {
+        topnav.classList.toggle('active');
+    });
 
     items.forEach(link => {
 
@@ -91,6 +96,9 @@ document.addEventListener("DOMContentLoaded", function() {
             
         link.addEventListener('click', function(event) {
             event.preventDefault();
+            if (topnav.classList.contains('active')) {
+                topnav.classList.remove('active');
+            }
             scrollToTarget(customData);
         })
     })
@@ -115,4 +123,3 @@ document.addEventListener("DOMContentLoaded", function() {
     setInterval(updateClock, 1000);
     updateClock(); // call immediately to avoid delay
 });
-
